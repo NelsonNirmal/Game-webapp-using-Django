@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="r.p.s.css">
+	<title>rock</title>
+	<style>
+		body{
+	background-color:black;
+}
+.score{
+	margin:30px;
+
+}
+
+label{
+   font-size:50px;
+   color:white;
+}
+
+.userscore{
+	margin:30px;
+}
+
+
+.input{
+	text-align:center;
+	margin-top:100px;
+}
+
+input{
+	height:15vh;
+	width:50vh;
+	border:none;
+	border-radius:6px;
+	font-size:50px;
+	text-align:center;
+}
+
+.button{
+	   margin-top:30px;
+       text-align:center;
+}
+
+button{
+	margin-right:9px;
+	height:5vh;
+	width:12vh;
+}
+	</style>
+</head>
+<body>
+<label for="pcscore">PC SCORE</label>
+<input type="text" id="pcscore" class="score">
+<label for="userscore">USER SCORE</label>
+<input type="text" id="userscore" class="userscore">
+<div class="input">
+<input type="text" placeholder="" id="output">
+</div>
+
+<div class="button">
+<button onclick="rock('rock')">ROCK</button>
+<button onclick="paper('paper')">PAPER</button>
+<button onclick="scissor('scissor')">SCISSOR</button>
+<
+</div>
+<script>
+ 	  let output=document.getElementById("output")
+ 	  let pcscore=document.getElementById("pcscore")
+ 	  let userscore=document.getElementById("userscore")
+ 	let pc_guss=['rock','paper','scissor'];
+    pc_point=0;
+    user_point=0;
+     function rock(rock){
+     	if(pc_point<=2 && user_point<=3){
+     	 values=Math.floor(Math.random()*3);
+         pc_gussing=pc_guss[values];
+     	if(pc_gussing==rock){
+     		output.value="friends";
+        }
+        else if(pc_gussing=="paper"){
+        	output.value="PC WIN";
+        	pc_point+=1;
+        		pcscore.value='';
+       	pcscore.value="pc point=";
+        pcscore.value+=pc_point;
+        userscore.value='';
+        userscore.value+="user point=";
+        userscore.value+=user_point;
+        }
+        else if(pc_gussing=="scissor"){
+        	output.value="USER WIN";
+        	 user_point+=1;
+        	 	pcscore.value='';
+       		pcscore.value="pc point=";
+        pcscore.value+=pc_point;
+        userscore.value='';
+        userscore.value+="user point=";
+        userscore.value+=user_point;        }
+        else{
+        	output.value=="DEAD"
+        }
+         }
+       
+       }
+ 	  function paper(paper){
+ 	  	if(pc_point<=2 && user_point<=2){
+ 	  	values=Math.floor(Math.random()*3);
+     pc_gussing=pc_guss[values];
+         if(pc_gussing==paper){
+         	output.value="friends";
+         }
+         else if(pc_gussing=="scissor"){
+         	output.value="PC WIN";
+         	pc_point=pc_point+1;
+         		pcscore.value='';
+       	pcscore.value="Pc point=";
+        pcscore.value+=pc_point;
+        userscore.value='';
+        userscore.value+="user ponit=";
+        userscore.value+=user_point;
+         }
+        else if(pc_gussing=="rock"){
+        	output.value="user WIN";
+        	 user_point+=1;
+        	 	pcscore.value='';
+       	pcscore.value="pc point=";
+        pcscore.value+=pc_point;
+        userscore.value='';
+        userscore.value+="user point=";
+        userscore.value+=user_point;
+        }
+        else{
+        	output.value="DEAD"
+        }
+    }
+      }
+
+      function scissor(scissor){
+      	if(pc_point<=2 && user_point<=2){
+      
+      	values=Math.floor(Math.random()*3);
+     pc_gussing=pc_guss[values];
+       if(pc_gussing==scissor){
+       	output.value="firends"
+       }
+       else if(pc_gussing=="rock"){
+       	output.value="PC WIN";
+       	pc_point+=1;
+       	pcscore.value='';
+       	pcscore.value="pc point=";
+        pcscore.value+=pc_point;
+        userscore.value='';
+        userscore.value+="user point=";
+        userscore.value+=user_point;
+
+       }
+       else if(pc_gussing=="paper"){
+       	output.value="USER WIN";
+       	 user_point+=1;
+       	 	pcscore.value='';
+       	pcscore.value="pc point=";
+        pcscore.value+=pc_point;
+        userscore.value='';
+        userscore.value+="user point=";
+        userscore.value+=user_point;
+       }
+       else{
+       	output.value="dead";
+       }
+     }
+
+     }
+  
+ 
+    
+     
+     
+     
+	
+
+
+
+</script>
+
+</body>
+</html>

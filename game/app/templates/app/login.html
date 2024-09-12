@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+<style>
+body{
+background-image:url({% static 'app/images/background.JPG' %});
+background-repeat:no-repeat;
+background-size:cover;
+display:flex;
+justify-content:center;
+margin-top:200px;
+
+
+}
+
+
+
+
+
+    .from{
+    text-align:justify;
+    background-color:rgba(255,255,255,0.45);
+    border-radius:6px;
+    height:300px;
+    width:350px;
+    text-align:center;
+
+    }
+
+
+
+
+    .input1{
+    margin-top:10px;
+    height:30px;
+    border-radius:6px;
+    border:none;
+    font-family: monospace;
+    width:240px;
+    }
+
+    .input{
+    margin-top:20px;
+    height:30px;
+    border-radius:6px;
+    border:none;
+    width:240px;
+    }
+
+    button{
+      margin-top:20px;
+      border-radius:10px;
+      border:none;
+    height:40px;
+    width:280px;
+    }
+
+    h3{
+    font-size:30px;
+    font-family: monospace;
+
+
+    }
+   label{
+			font-family: monospace;
+			font-size:18px;
+		}
+
+
+</style>
+
+
+
+</head>
+<body>
+<div class="from">
+<form method="post" action="check/">
+    {% csrf_token %}
+    <h3>LOGIN</h3>
+<label for="email">Email</label>
+<input type="email" placeholder="email" id="email" name="email" class="input1"><br>
+<label for="password">Password</label>
+<input type="password" placeholder="password" id="password" name="password" class="input"><br>
+<button type="submit" >LOGIN</button><br>
+    <a href="signup/">signup</a>
+
+
+</form>
+</div>
+</body>
+</html>

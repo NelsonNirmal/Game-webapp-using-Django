@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="X.O.X.css">
+	<title>XOX</title>
+	<style>
+		body{
+	background-color:black;
+}
+
+
+
+
+.box{
+	display:grid;
+	grid-template-columns:repeat(3,90px);
+	border:3px solid blue;
+   border-radius:30px;
+}
+
+.box input{
+	height:90px;
+	font-size:60px;
+	font-family:monospace;
+	text-align:center;
+	border:3px solid black;
+	border-radius:30px;
+
+
+}
+
+
+.cointainer{
+	display:flex;
+	justify-content:center;
+	margin-top:200px;
+
+}
+
+.output{
+   height:30px;
+   width:100px;
+}
+
+#input{
+    position:relative;
+    bottom:450px;
+    margin:30PX;
+    height:100px;
+    width:400px;
+    font-size:40px;
+    font-family:monospace;
+    border-radius:40px;
+    text-align:center;
+}
+
+
+
+
+
+	</style>
+
+</head>
+<body>
+	<div class="cointainer">
+	<div class="box">
+	<input type="text" id="box1" onclick="myfunc()" >
+	<input type="text" id="box2" onclick="myfunc()">
+	<input type="text" id="box3" onclick="myfunc()">
+	<input type="text" id="box4" onclick="myfunc()">
+	<input type="text" id="box5" onclick="myfunc()">
+	<input type="text" id="box6" onclick="myfunc()">
+	<input type="text" id="box7" onclick="myfunc()">
+	<input type="text" id="box8" onclick="myfunc()">
+	<input type="text" id="box9" onclick="myfunc()">
+    </div>
+</div>
+
+<input type="text" id="input">
+
+
+<script>
+	let input=document.getElementById('input')
+function myfunc(){
+var box1,box2,box3,box4,box5,box6,box7,box8,box9;
+box1=document.getElementById('box1').value
+box2=document.getElementById('box2').value
+box3=document.getElementById('box3').value
+box4=document.getElementById('box4').value
+box5=document.getElementById('box5').value
+box6=document.getElementById('box6').value
+box7=document.getElementById('box7').value
+box8=document.getElementById('box8').value
+box9=document.getElementById('box9').value
+   
+   	if(box1=='o' && box2=='o' && box3=='o'){
+
+   	
+        window.alert('play o win');
+        input.value="play o win";
+
+        document.getElementById('box3').disables='true';
+    }
+
+    else if(box1=='o' && box4=='o' && box7=='o'){
+
+   	
+        window.alert('play o win');
+        input.value="play o win";
+
+        document.getElementById('box3').disables='true';
+    }
+   
+
+    else if(box1=='o' && box5=='o' && box9=='o'){
+       
+       window.alert('play o win');
+       input.value='play o win';
+       document.getElementById('box2').disables='true';
+    }
+
+    else if(box3=='o' && box6=='o'  && box9=='o'){
+
+    	window.alert('play o win');
+    	input.value='player o win';
+    	document.getElementById('box5').disables='true';
+    }
+    else if(box2=='o' && box5=='o' && box8=='o'){
+         window.alert('player o win');
+         input.value='player o win';
+
+
+    }
+    else if(box4=='o' && box5=='o' && box6=='o'){
+
+    	window.alert('player o win');
+    	input.value='player o win';
+    }
+
+    else if(box7=='o' && box8=='o' && box9=='o'){
+
+    	window.alert('player o win');
+    	input.value='player o win';
+    }
+
+    else if(box3=='o' && box5=='o' && box7=='o'){
+    	window.alert('player o win');
+    	input.value='player o win';
+    }
+
+
+    /* for x */
+   
+
+
+   	if(box1=='x' && box2=='x' && box3=='x'){
+
+   	
+        window.alert('play x win');
+        input.value="play x win";
+
+        document.getElementById('box3').disables='true';
+    }
+
+    else if(box1=='x' && box4=='x' && box7=='x'){
+
+   	
+        window.alert('play x win');
+        input.value="play x win";
+
+        document.getElementById('box3').disables='true';
+    }
+   
+
+    else if(box1=='x' && box5=='x' && box9=='x'){
+       
+       window.alert('play x win');
+       input.value='play x win';
+       document.getElementById('box2').disables='true';
+    }
+
+    else if(box3=='x' && box6=='x'  && box9=='x'){
+
+    	window.alert('play x win');
+    	input.value='player x win';
+    	document.getElementById('box5').disables='true';
+    }
+    else if(box2=='x' && box5=='x' && box8=='x'){
+         window.alert('player x win');
+         input.value='player x win';
+
+
+    }
+    else if(box4=='x' && box5=='x' && box6=='x'){
+
+    	window.alert('player x win');
+    	input.value='player x win';
+    }
+
+    else if(box7=='x' && box8=='x' && box9=='x'){
+
+    	window.alert('player x win');
+    	input.value='player x win';
+    }
+
+    else if(box3=='x' && box5=='x' && box7=='x'){
+    	window.alert('player x win');
+    	input.value='player x win';
+    }
+
+
+
+    
+}
+       
+    	
+    	
+</script>
+
+
+
+</body>
+</html>

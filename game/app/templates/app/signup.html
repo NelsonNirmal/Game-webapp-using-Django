@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    body{
+     background-image:url({% static 'app/images/background.JPG' %});
+     background-repeat:no-repeat;
+     background-size:cover;
+    display:flex;
+    margin-top:200px;
+    justify-content:center;
+
+
+    }    .from1{
+    background-color:rgba(255,255,255,0.45);
+        position:relative;
+        text-align:center;
+        border-radius:6px;
+        height:300px;
+        width:300px;
+
+
+        }
+
+        form{
+        margin-top:70px;
+
+
+
+        }
+        table{
+           margin:20px;
+           }
+
+           h3{
+
+           position:relative;
+           bottom:40px;
+           font-size:30px;
+
+
+
+           }
+    </style>
+</head>
+<body>
+<div class="from1">
+<form name="register" method="POST" action="/insertuser/">
+    <h3>SIGN UP</h3>
+    {% csrf_token %}
+    <table>{{form.as_table}}</table>
+    <br>
+    <input type="submit" name="register" value="SIGNUP">
+</form>
+</div>
+</body>
+</html>
