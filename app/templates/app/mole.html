@@ -1,0 +1,126 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="./style.css">
+<title>Whack A Mole</title>
+<style type="text/css">
+  * {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.board {
+    width: 450px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cell {
+    width: 150px;
+    height: 150px;
+    border: 5px solid white;
+    overflow: hidden;
+}
+
+.mole {
+    width: 150px;
+    height: 150px;
+    background-image: url('https://th.bing.com/th?id=OIP.mfElVw2DQn1oix7Dt2u4hwHaGL&w=273&h=228&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2');
+    background-size: contain;
+    animation: appear 0.9s;
+}
+
+body{
+  background-color:black;
+}
+
+@keyframes appear {
+    0% {
+        transform: translateY(130px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+</style>
+</head>
+<body data-rsssl=1>
+<h5 style="color:brown; font-size:50px;">Whack A Mole</h5>
+<p>
+<div style="color:white;">Score :<div></div> <span id="score" style="colo:white;">0</span>  
+<div>Time :<div></div> <span id="time" style="color:white;">10</span>  
+<button id="start">Start</button>
+</p><div class="board">
+<div class="cell" data-index="0"></div>
+<div class="cell" data-index="1"></div>
+<div class="cell" data-index="2"></div>
+<div class="cell" data-index="3"></div>
+<div class="cell" data-index="4"></div>
+<div class="cell" data-index="5"></div>
+<div class="cell" data-index="6"></div>
+<div class="cell" data-index="7"></div>
+<div class="cell" data-index="8"></div>
+</div>
+
+ <script>
+  // the elements
+const cells = document.querySelectorAll('.cell');
+const scoreEl = document.querySelector('#score');
+const timeEl = document.querySelector('#time');
+const startBtn = document.querySelector('#start');
+
+// global variables
+let score = 0;
+let time = 10;
+let currentPos;
+
+// when a cell is clicked, it checks if the mole is there and updates the score if it is
+cells.forEach(cell => {
+    cell.addEventListener('click', () => {
+        if (parseInt(cell.getAttribute('data-index')) === currentPos) {
+            score++;
+            scoreEl.innerHTML = score;
+        }
+    })
+});
+
+// adding a listener to the start button
+startBtn.addEventListener('click', start);
+
+function start() {
+    let startGame = setInterval(() => { // looping the game until time's up
+        // emptying all cell at the start to ensure noo duplicate mole
+        cells.forEach(cell => {
+            cell.innerHTML = '';
+        });
+
+        // filling a random cell by adding a div with mole class
+        currentPos = Math.floor(Math.random() * 9);
+        cells[currentPos].innerHTML = '<div class="mole"></div>';
+
+        // checking if time's up
+        time--;
+        timeEl.innerHTML = time;
+        if (time === 0) { // time's up
+            clearInterval(startGame); // stop the loop
+            // we use setTimeout because without it, alert executes before time updates
+            setTimeout(() => {
+                alert('Game Done! Refresh to restart.');
+            }, 100);
+        }
+    }, 1000);
+}
+</script>
+</body>
+</html>
